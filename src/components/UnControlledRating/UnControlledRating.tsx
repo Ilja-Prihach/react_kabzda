@@ -62,33 +62,29 @@ function UnControlledRating(props: RatingPropsType) {
     //     )
     // }
 
-    const [valueRating, setValueRating] = useState(3)
+    const [valueRating, setValueRating] = useState(0)
 
     return (
         <div>
-            <Star selected={valueRating > 0}/> <button onClick={() => (setValueRating(1))}>1</button>
-            <Star selected={valueRating > 1}/> <button onClick={() => (setValueRating(2))}>2</button>
-            <Star selected={valueRating > 2}/> <button onClick={() => (setValueRating(3))}>3</button>
-            <Star selected={valueRating > 3}/> <button onClick={() => (setValueRating(4))}>4</button>
-            <Star selected={valueRating > 4}/> <button onClick={() => (setValueRating(5))}>5</button>
+            <Star selected={valueRating > 0} setValueRating={() => {setValueRating(1)}}/>
+            <Star selected={valueRating > 1} setValueRating={() => {setValueRating(2)}}/>
+            <Star selected={valueRating > 2} setValueRating={() => {setValueRating(3)}}/>
+            <Star selected={valueRating > 3} setValueRating={() => {setValueRating(4)}}/>
+            <Star selected={valueRating > 4} setValueRating={() => {setValueRating(5)}}/>
         </div>
     )
 }
 
 type SortPropsType = {
     selected: boolean
+    setValueRating: () => void
 }
 
 function Star(props: SortPropsType) {
-    console.log("Star rendering");
-    if (props.selected === true) {
-        return (
-            <span><b>Star </b> </span>
-        )
-    }  else {
-        return (
-            <span>Star </span>
-        )
-    }
+    console.log("Star rendering")
+
+    return <span onClick={ () => {props.setValueRating()}}>
+        { props.selected ? <b> Star </b> : " Star "}
+    </span>
 }
 export default UnControlledRating;
