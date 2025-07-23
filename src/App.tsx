@@ -24,9 +24,9 @@ function App() {
           <UnControlledAccordion titleValue={"Users"}/>
           <Rating value={ratingValue} onClick={setRatingValue}/>
           <OnOff on={switchOn} onChange={setSwitchOn}/>
-          <Accordion titleValue={"UsersControlled"}
-                     collapsed={accordionCollapsed}
-                     onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}  />
+          {/*<Accordion titleValue={"UsersControlled"}*/}
+          {/*           collapsed={accordionCollapsed}*/}
+          {/*           onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}  />*/}
 
           <UncontrolledOnOf onChange={setSwitchOn}/> {switchOn.toString()}
       </div>
